@@ -4,80 +4,115 @@
 
     <div class="s2 form_container mt-5 border border-primary p-2 px-4 pb-4">
 
-    <div class="container">
-      <div class="title_container mt-5 mb-3 " >
-        <h2>Register Form</h2>
-      </div>
+    
+      <div class="container">
+        <div class="title_container mt-5 mb-3 ">
+          <h2>ຟອມລົງທະບຽນ</h2>
+        </div>
 
-      <div class="row clearfix">
-        <div class="row">
-          <form>
-
-            <div class="row justify-content-between">
-
-              <div class="input_field mb-2 col-md-4 f1">
-                <input class="f1" type="email" name="email" placeholder="Email" required />
+        <div class="d-flex justify-content-center">
+          <div class="col-md-0 mb-4">
+            <form class="md-form">
+              <div class="file-field">
+                <div class="mb-1">
+                  <img src="assets/images/13.png"
+                    class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                </div>
+                <div class="m1 d-flex justify-content-center">
+                  <div class="file btn btn-lg btn-primary">
+                    <span>ອັບໂຫລດຮູບ</span>
+                    <input class="m2" type="file"  name="file"/>
+                  </div>
+        
+                </div>
               </div>
+            </form>
+          </div>
+        </div>
+        
 
-              <div class="input_field mb-2 col-md-4 f2">
-                <input class="f1" type="password" name="password" placeholder="Password" required />
-              </div>
+        <div class="row clearfix">
+          <div class="row">
+            <form>
 
-              <div class="input_field mb-2 col-md-4 f3">
-                <input class="f1" type="password" name="password" placeholder="Re-type Password" required />
-              </div>
+              
+            
 
-            </div>
-
+              <div class="row clearfix justify-content-between">
 
 
-            <div class="row clearfix justify-content-between">
-
-
-                  <div class="input_field mb-2 col-md-4 f4">
-                    <input class="f1" type="text" name="name" placeholder="First Name"/>
+                <div class="input_field mb-2 col-md-4 f4">
+                  <div class="label">ຊື່ແທ້</div>
+                  <input class="f1" type="text" name="name" placeholder="ຊື່" />
                 </div>
 
 
-                  <div class="input_field mb-2 col-md-4 f5">
-                    <input class="f1" type="text" name="name" placeholder="Last Name" required />
+                <div class="input_field mb-2 col-md-4 f5">
+                  <div class="label">ນາມສະກຸນ</div>
+                  <input class="f1" type="text" name="name" placeholder="ນາມສະກຸນ" required />
                 </div>
 
                 <div class="input_field mb-2 col-md-4 f6">
-                  <input class="f1" type="text" name="tel" placeholder="Phone Number" required />
+                  <div class="label">ເບີໂທ</div>
+                  <input class="f1" type="text" name="tel" placeholder="ເບີໂທ" required />
                 </div>
 
-            </div>
-                <div class="input_field radio_option mb-2 mt-2 row d-flex">
-                  <div class="input_field mb-2 col-md-4 " >
-                    <input class="f1" type="date" style="width: 188px;">
-                  </div>
+              </div>
 
-                  <div class=" col-sm-5">
-                    <input class="c1" type="radio" name="radiogroup1" id="rd1">
-                    <label class="mx-1" for="rd1">Male</label>
+              <div class="row justify-content-between">
 
-                    <input class="c2" type="radio" name="radiogroup1" id="rd2">
-                    <label class="mx-1" for="rd2">Female</label>
-                  </div>
-
-                  
-
+                <div class="input_field mb-2 col-md-4 f1">
+                  <div class="label">ອີເມວ</div>
+                  <input class="f1" type="email" name="email" placeholder="ອີເມວ" required />
                 </div>
 
-                <div class="row mb-2 mt-2">
+                <div class="input_field mb-2 col-md-4 f2">
+                  <div class="label">ລະຫັດຜ່ານ</div>
+                  <input class="f1" type="password" name="password" placeholder="ລະຫັດຜ່ານ" required />
+                </div>
 
+                <div class="input_field mb-2 col-md-4 f3">
+                  <div class="label">ຢືນຢັນລະຫັດຜ່ານ</div>
+                  <input class="f1" type="password" name="password" placeholder="ຢືນຢັນລະຫັດຜ່ານ" required />
+                </div>
+
+              </div>
+
+
+
+              <div class="row">
+
+                <div class="input_field mb-2 col-md-4 f3">
+                  <div class="label">ວັນເດືອນປີເກີດ</div>
+                  <input class="f1" type="date" style="width: 188px;">
+                </div>
+
+                <div class="input_field mb-2 col-md-4 f3">
+                  <div class="label">ເພດ</div>
+                  <input class="c1" type="radio" name="radiogroup1" id="rd1">
+                  <label class="mx-1" for="rd1">ຊາຍ</label>
+
+                  <input class="c2" type="radio" name="radiogroup1" id="rd2">
+                  <label class="mx-1" for="rd2">ຍິງ</label>
+                </div>
+
+              </div>
+
+
+                <div class="row mb-2">
                   <div class="Village  mb-2 col-md-4">
+                    <div class="label">ບ້ານ</div>
                     <select class="s1" name="" id="">
-                      <option value="">Select Village</option>
+                      <option value="">ເລືອກບ້ານ</option>
                       <option value="">Nongtaeng</option>
                       <option value="">Nongbuatha</option>
                     </select>
                   </div>
 
                   <div class="select_district  mb-2 col-md-4">
+                    <div class="label">ເມືອງ</div>
                     <select class="s1" name="" id="">
-                      <option value="">Select District</option>
+                      <option value="">ເລືອກເມືອງ</option>
                       <option value="">ສີໂຄດ</option>
                       <option value="">ສີສັດຕະນາກ</option>
                     </select>
@@ -85,8 +120,9 @@
 
 
                   <div class="select_province mb-2 col-md-4">
+                    <div class="label">ແຂວງ</div>
                     <select class="s1" name="" id="">
-                      <option value="">Select Province</option>
+                      <option value="">ເລືອກແຂວງ</option>
                       <option value="">ນະຄອນຫຼວງ</option>
                       <option value="">ຫຼວງພະບາງ</option>
                     </select>
@@ -98,27 +134,25 @@
 
 
 
-              <div class="input_field checkbox_option">
-                <input  type="checkbox" id="cb1">
-            <label class="mx-2" for="cb1">I agree with terms and conditions</label>
-              </div>
+                <!-- <div class="input_field checkbox_option">
+                  <input type="checkbox" id="cb1">
+                  <label class="mx-2" for="cb1">I agree with terms and conditions</label>
+                </div>
 
-              <div class="input_field checkbox_option">
-                <input  type="checkbox" id="cb2" >
-            <label class="mx-2" for="cb2">I want to receive the newsletter</label>
-              </div>
+                <div class="input_field checkbox_option">
+                  <input type="checkbox" id="cb2">
+                  <label class="mx-2" for="cb2">I want to receive the newsletter</label>
+                </div> -->
 
-              <div class="row justify-content-center">
-            <input class="w-50 q1 button mt-2" type="submit" value="Register" />
+                <div class="row justify-content-center">
+                  <input class="w-50 q1 button mt-2" type="submit" value="ລົງທະບຽນ" />
+                </div>
+            </form>
+
           </div>
-          </form>
         </div>
       </div>
-    </div>
     </div>
   </div>
 
 </div>
-
-
-

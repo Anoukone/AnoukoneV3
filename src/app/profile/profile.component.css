@@ -1,33 +1,15 @@
-.s2{
-    border-radius: 20px; 
-}
-.f1{
-    border-radius: 5px;
-}
-.s1{
-    padding: 5px;
-    border-radius: 5px;
-}
-.c2{
-    margin-left: 15px;
-}
-
-
 .avatar-pic {
     width: 150px;
     }
-.m1 {
+
+div {
         position: relative;
         overflow: hidden;
       }
-.m2 {
+input {
         position: absolute;
         font-size: 50px;
         opacity: 0;
         right: 0;
         top: 0;
       }
-
-
-
-
