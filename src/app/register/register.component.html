@@ -9,22 +9,38 @@
         <h2>Register Form</h2>
       </div>
 
-      <div class="row clearfix">
+      <div class="row">
         <div class="row">
-          <form>
+          <form [formGroup]="registerForm" (ngSubmit)="Onsubmit()">
 
             <div class="row justify-content-between">
 
-              <div class="input_field mb-2 col-md-4 f1">
-                <input class="f1" type="email" name="email" placeholder="Email" required />
+              <div class="mb-2 col-md-4 f1">
+                <input [ngClass]="{'is-invalid': submitted && f.email.errors}" class="f1" type="email" name="email" placeholder="Email" formControlName="email" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback" >
+                  <div *ngIf="f.email.errors.required">
+                    ກະລຸນາຕື່ມຂໍ້ມູນ
+                  </div>
+                  <div *ngIf="f.email.errors.email">
+                    Email ບໍ່ຖືກຕ້ອງ
+                  </div>
+                </div>
               </div>
 
-              <div class="input_field mb-2 col-md-4 f2">
-                <input class="f1" type="password" name="password" placeholder="Password" required />
+              <div class="mb-2 col-md-4 f2">
+                <input [ngClass]="{'is-invalid': submitted && f.password.errors}" class="f1" type="password" name="password" placeholder="Password" formControlName="password"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">
+                      ກະລຸນາໃສ່ລະຫັດ
+                  </div>
+                   <div *ngIf="f.password.errors.minlenght">
+                    ລະຫັດຕ້ອງມີ 8 ຕົວຂຶ້ນໄປ
+                </div>
+                </div>
               </div>
 
               <div class="input_field mb-2 col-md-4 f3">
-                <input class="f1" type="password" name="password" placeholder="Re-type Password" required />
+                <input class="f1" type="password" name="password" placeholder="Confrim Password" formControlName="confrim_password" />
               </div>
 
             </div>
@@ -35,40 +51,40 @@
 
 
                   <div class="input_field mb-2 col-md-4 f4">
-                    <input class="f1" type="text" name="name" placeholder="First Name"/>
+                    <input class="f1" type="text" name="name" placeholder="First Name" formControlName="first_name" />
                 </div>
 
 
                   <div class="input_field mb-2 col-md-4 f5">
-                    <input class="f1" type="text" name="name" placeholder="Last Name" required />
+                    <input class="f1" type="text" name="name" placeholder="Last Name" formControlName="last_name" />
                 </div>
 
                 <div class="input_field mb-2 col-md-4 f6">
-                  <input class="f1" type="text" name="tel" placeholder="Phone Number" required />
+                  <input class="f1" type="text" name="tel" placeholder="Phone Number" formControlName="telephone" />
                 </div>
 
             </div>
                 <div class="input_field radio_option mb-2 mt-2 row d-flex">
                   <div class="input_field mb-2 col-md-4 " >
-                    <input class="f1" type="date" style="width: 188px;">
+                    <input class="f1" type="date" style="width: 188px;" formControlName="date_of_birth">
                   </div>
 
                   <div class=" col-sm-5">
-                    <input class="c1" type="radio" name="radiogroup1" id="rd1">
+                    <input class="c1" type="radio" name="radiogroup1" id="rd1" value="gender" formControlName="gender" >
                     <label class="mx-1" for="rd1">Male</label>
 
-                    <input class="c2" type="radio" name="radiogroup1" id="rd2">
+                    <input class="c2" type="radio" name="radiogroup1" id="rd2" value="gender" formControlName="gender">
                     <label class="mx-1" for="rd2">Female</label>
                   </div>
 
-                  
+
 
                 </div>
 
-                <div class="row mb-2 mt-2">
+                <!-- <div class="row mb-2 mt-2">
 
                   <div class="Village  mb-2 col-md-4">
-                    <select class="s1" name="" id="">
+                    <select class="s1" name="" id="" formControlName="village">
                       <option value="">Select Village</option>
                       <option value="">Nongtaeng</option>
                       <option value="">Nongbuatha</option>
@@ -76,7 +92,7 @@
                   </div>
 
                   <div class="select_district  mb-2 col-md-4">
-                    <select class="s1" name="" id="">
+                    <select class="s1" name="" id="" formControlName="district">
                       <option value="">Select District</option>
                       <option value="">ສີໂຄດ</option>
                       <option value="">ສີສັດຕະນາກ</option>
@@ -85,7 +101,7 @@
 
 
                   <div class="select_province mb-2 col-md-4">
-                    <select class="s1" name="" id="">
+                    <select class="s1" name="" id="" formControlName="province">
                       <option value="">Select Province</option>
                       <option value="">ນະຄອນຫຼວງ</option>
                       <option value="">ຫຼວງພະບາງ</option>
@@ -93,7 +109,7 @@
                   </div>
 
 
-                </div>
+                </div> -->
 
 
 
@@ -109,7 +125,7 @@
               </div>
 
               <div class="row justify-content-center">
-            <input class="w-50 q1 button mt-2" type="submit" value="Register" />
+            <button class="w-50 q1 button mt-2" type="submit">Register</button>
           </div>
           </form>
         </div>
