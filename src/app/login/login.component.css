@@ -43,13 +43,15 @@ h2 {
 /* STRUCTURE */
 
 .wrapper {
+  
   display: flex;
   align-items: center;
   flex-direction: column; 
   justify-content: center;
-  width: 100%;
-  min-height: 100%;
-  padding: 20px;
+  width: auto;
+  min-height: auto;
+  padding: auto;
+  margin-top: 100px;
 }
 
 #formContent {
@@ -235,6 +237,7 @@ input[type=text]:placeholder {
 }
 
 .fadeIn.fourth {
+  font-size: 18px;
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   animation-delay: 1s;
