@@ -18,19 +18,12 @@ export class RegisterComponent implements OnInit {
   province_data:any=[];
   district_data:any=[];
   village_data:any=[];
-
-
-
-
-
+  registerForm: any = FormGroup;
+  submitted = false;
 
   constructor(private fb: FormBuilder, private service: UserService, private http:HttpClient) {
 
   }
-
-  registerForm = new FormGroup({});
-  submitted = false;
-
 
   ngOnInit(): void {
     this.registerForm=  this.fb.group({
@@ -52,34 +45,35 @@ export class RegisterComponent implements OnInit {
     );
 
     this.service.getProvinces().subscribe(response =>{
-      console.log(response)
+      // console.log(response)
         this.provinceList=response.provinces
      });
   this.service.getDistrict().subscribe(response =>{
-       console.log(response)
+      //  console.log(response)
         this.districtList=response.districts
   });
      this.service.getVillage().subscribe(response =>{
-         console.log(response)
+        //  console.log(response)
             this.villageList=response.villages
       })
   }
 
-  get f(){
-    return this.registerForm.controls;
-  }
+  get f(){return this.registerForm.controls;}
 
-  onsubmit(){
+  on_Register(){
     this.submitted = true;
     if(this.registerForm.invalid){
-      Swal.fire({
-        title: 'Please Check',
-        text: 'Please write information',
+       Swal.fire({
+        title: 'ກະລຸນາກວດສອບຄືນອີກຄັ້ງ',
         icon: 'warning',
-        confirmButtonText: 'OK',
+        confirmButtonText: 'ຕົກລົງ',
       })
-    } else if(this.registerForm.valid){
-      console.log(this.registerForm.value);
+     } else{
+      const formData= new FormData(); //Create Data Store by FormData()
+      Object.entries(this.registerForm.value).forEach(([key,value]:any[])=>{
+      formData.set(key,value)
+    })
+      console.log(formData)
 
     }
   }
@@ -106,8 +100,6 @@ export class RegisterComponent implements OnInit {
       this.submitted = false;
       this.registerForm.reset();
     }
-
-
   }
 
 
