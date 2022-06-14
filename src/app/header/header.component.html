@@ -31,7 +31,7 @@
 
                 <button routerLinkActive="active" routerLink="cart" *ngIf="userLogin" class="btn btn-outline-light">
                     <i  class="fa fa-cart-plus me-1" > ກະຕ່າສິ້ນຄ້າ</i>
-                    <div class="text-danger">{{totalItem}}</div>
+                    <span class="text-white">{{ totalItem }}</span>
 
                 </button>
                <li *ngIf="userLogin">

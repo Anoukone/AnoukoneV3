@@ -82,6 +82,11 @@ getVillage(){
   getProduct(){
     return this.productList.asObservable();
   }
+
+  itemCount(){
+    return this.cartitemList.lenght
+  }
+
   setProduct(product: any){
     this.cartitemList.push(...product)
     this.productList.next(product)
@@ -90,6 +95,7 @@ getVillage(){
     this.cartitemList.push(product)
     this.productList.next(this.cartitemList)
     this.gettotalPrice()
+    console.log(product)
 
   }
   gettotalPrice(): number{

@@ -11,7 +11,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HeaderComponent implements OnInit, OnDestroy {
   userLogin = false;
   private authListenerSubs: any
-  public totalItem: any = 0
+   totalItem: any
+
+
   constructor(private userService: UserService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -19,9 +21,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       {
         this.userLogin = userAuthenticated;
       })
-    this.userService.getProduct().subscribe(response => {
-      this.totalItem = response.lenght;
+    this.userService.getProduct().subscribe(res => {
+      this.totalItem = res.lenght;
     })
+
   }
 
   onLogout(){
@@ -31,6 +34,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.spinner.hide();
     },2000)
   }
+
+
 
   ngOnDestroy(): void {
     this.authListenerSubs.unsubscribe()

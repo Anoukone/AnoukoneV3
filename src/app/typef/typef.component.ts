@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypefComponent implements OnInit {
   productList : any
+
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
