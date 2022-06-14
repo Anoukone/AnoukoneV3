@@ -3,9 +3,9 @@
 
     transition-duration:       .5s;
     transform: .5s;
-   
+
    }
-   
+
    .fa-home{
        font-size: 15px;
    }
@@ -19,8 +19,10 @@
    /* .d-block{
        border-radius: 10px;
    } */
-   
+
    .gs{
        justify-content: center;
    }
-   
+   .font-lao{
+     font-family: noto;
+   }

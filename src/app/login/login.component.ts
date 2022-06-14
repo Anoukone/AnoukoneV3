@@ -1,4 +1,11 @@
+import Swal from 'sweetalert2';
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../register/user-service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+
 
 @Component({
   selector: 'app-login',
@@ -6,11 +13,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  submitted =false
 
-  constructor() { }
+  constructor(private service: UserService,public router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
 
+  onLogin(form: NgForm){
+    if(form.invalid){
+      Swal.fire({
+        icon: 'error',
+        title: 'Form is Invalid',
+        text: 'Please check all Fill',
+      })
+    }else if(form.valid){
+      this.spinner.show()
+      this.service.login(form.value.email, form.value.password)
+      this.router.navigate(['main'])
+    }
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 1000)
+
+  }
 }
 

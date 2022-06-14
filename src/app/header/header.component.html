@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container">
+    <img class="img m-lg-2" src="assets/images/logo.png">
+      <a class="navbar-brand " style="font-size:25px; color: white;" href="index.html">ຮ້ານ ເອສເອສ ຊີ້ນສະໄລ້  <br/> <br/> ແລະ ອາຫານແຊ່ແຂງ</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2  ">
+
+
+
+              <li class="nav-item"><a class="fa fa-home nav-link" style="font-size:18px; color: white;"  routerLinkActive="active" routerLink="/main"> ໜ້າຫຼັກ</a></li>
+
+              <li class="nav-item dropdown " >
+                  <a class="fa fa-align-justify nav-link dropdown-toggle" style="font-size:18px;color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ໝວດໝູ່ອາຫານ</a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                      <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" routerLinkActive="active" routerLink="/typef"> ປະເພດຊີ້ນໝູ</a></li>
+                      <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" href=""> ປະເພດຊີ້ນງົວ</a></li>
+                      <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" href=""> ປະເພດອາຫານແຊ່ແຂງ</a></li>
+                  </ul>
+              </li>
+
+              <!-- <li class="nav-item"><a class=" fa fa-telegram nav-link" style="font-size:18px; color: white;" href=""> ຕິດຕໍ່ພວກເຮົາ</a></li> -->
+              <li *ngIf="!userLogin" class="nav-item dropdown">
+                  <a class="fa fa-list-alt nav-link dropdown-toggle" style="font-size:18px; color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ເຂົ້າສູ່ລະບົບ</a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                      <li ><a class="fa fa-lock dropdown-item" style="font-size:18px;" routerLinkActive="active" routerLink="/login" > ລ໋ອກອິນ</a></li>
+                      <li ><a class="fa fa-registered dropdown-item" style="font-size:18px;" routerLinkActive="active" routerLink="/register" > ລົງທະບຽນ</a></li>
+                  </ul>
+              </li>
+
+
+                <button routerLinkActive="active" routerLink="cart" *ngIf="userLogin" class="btn btn-outline-light">
+                    <i  class="fa fa-cart-plus me-1" > ກະຕ່າສິ້ນຄ້າ</i>
+                    <div class="text-danger">{{totalItem}}</div>
+
+                </button>
+               <li *ngIf="userLogin">
+                <button type="button" (click)="onLogout()" class="btn btn-danger mx-2">Log out</button>
+               </li>
+
+
+               <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple" [fullScreen]="true">
+              </ngx-spinner>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+

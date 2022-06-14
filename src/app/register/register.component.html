@@ -1,3 +1,7 @@
+
+
+
+
 <div class="d1 ">
   <div class="container d-flex justify-content-center">
 
@@ -11,69 +15,46 @@
             <h2 class="font-lao">ຟອມລົງທະບຽນ</h2>
           </div>
 
-          <div class="d-flex justify-content-center">
-            <div class="col-md-0 mb-4">
 
-                <div class="file-field">
-                  <div class="mb-1">
-                    <img src="assets/images/13.png" class="rounded-circle z-depth-1-half avatar-pic"
-                      alt="example placeholder avatar">
-                  </div>
-                  <div class="m1 d-flex justify-content-center">
-
-                    <span class="n1 btn btn-lg btn-primary font-lao fs-5">ອັບໂຫລດຮູບ</span>
-                    <input class="m2" type="file" name="file" />
-
-
-                  </div>
-                </div>
-
-            </div>
-          </div>
 
 
           <div class="row clearfix">
             <div class="row">
-              <form [formGroup]="registerForm" (ngSubmit)="on_Register()">
+
+              <form #signupForm="ngForm" (submit)="onSignup(signupForm)">
 
                 <div class="row font-lao">
 
-                  <div class="form-group mt-2 mb-2">
-                    <label for="first_name" class="col-sm-6 font-lao">ຊື່</label>
+                  <!-- <div class="form-group mt-2 mb-2">
+                    <label for="name" class="col-sm-6 font-lao">ຊື່</label>
                     <div class="col-sm-12">
-                      <input [ngClass]="{'is-invalid': submitted && f.first_name.errors }" placeholder="ໃສ່ຊື່" type="text" id="first_name" class="form-control" formControlName="first_name">
-                      <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback font-lao">
-                        <div *ngIf="f.first_name.errors.required">
-                          ກະລຸນາໃສ່ຊື່
-                        </div>
-                      </div>
+                      <input placeholder="ໃສ່ຊື່" type="text" name="name" ngModel #nameInput="ngModel" class="form-control" required>
+                      <small class="text-danger" *ngif="nameInput.invalid && nameInput.touched">Please Enter Name</small>
+                    </div>
+                  </div> -->
+
+                  <div class="form-group mt-2 mb-2">
+                    <label for="name" class="col-sm-6">ຊື່</label>
+                    <div class="col-sm-12">
+                      <input  placeholder="ໃສ່ຊື່" type="text" name="name" ngModel #nameInput="ngModel" class="form-control" required>
+                      <small class="text-danger" *ngIf="nameInput.invalid">Please Enter name</small>
                     </div>
                   </div>
 
+
                   <div class="form-group mt-2 mb-2">
-                    <label for="fullName" class="col-sm-6">ນາມສະກຸນ</label>
+                    <label for="surname" class="col-sm-6">ນາມສະກຸນ</label>
                     <div class="col-sm-12">
-                      <input [ngClass]="{'is-invalid': submitted && f.last_name.errors}" placeholder="ໃສ່ນາມສະກຸນ" type="text" id="last_name" class="form-control" formControlName="last_name">
-                      <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
-                        <div *ngIf="f.last_name.errors.required">
-                          ກະລຸນາໃສ່ນາມສະກຸນ
-                        </div>
-                      </div>
+                      <input  placeholder="ໃສ່ນາມສະກຸນ" type="text" name="surname" ngModel #surnameInput="ngModel" class="form-control" required>
+                      <small class="text-danger" *ngIf="surnameInput.invalid">Please Enter Surname</small>
                     </div>
                   </div>
 
                   <div class="form-group mt-2 mb-2">
                     <label for="fullName" class="col-sm-6">ເມລ</label>
                     <div class="col-sm-12">
-                      <input [ngClass]="{'is-invalid' : submitted && f.email.errors}" placeholder="ໃສ່ເມວ" type="text" id="email" class="form-control" formControlName="email">
-                      <div *ngIf="f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">
-                          <span>ກະລຸນາໃສ່ເມລ</span>
-                        </div>
-                        <div *ngIf="f.email.errors.email">
-                          <span>ເມລບໍ່ຖືກຕ້ອງ</span>
-                        </div>
-                      </div>
+                      <input  placeholder="ໃສ່ເມວ" type="text"name="email" ngModel #emailInput="ngModel" class="form-control" required email>
+                      <small class="text-danger" *ngIf="emailInput.invalid">Please Enter Mail</small>
                     </div>
                   </div>
 
@@ -82,130 +63,91 @@
                     <div class="form-group col-md-6">
                       <label for="password" class="">ໃສ່ລະຫັດຜ່ານ</label>
                       <div class="">
-                        <input [ngClass]="{'is-invalid' : submitted && f.password.errors}" placeholder="ໃສ່ລະຫັດຜ່ານ" type="password" id="password" class="form-control" formControlName="password">
-                        <div *ngIf="f.password.errors" class="invalid-feedback">
-                          <div *ngIf="f.password.errors.required">
-                            ກະລຸນາໃສ່ລະຫັດຜ່ານ
-                          </div>
-                          <div *ngIf="f.password.errors?.['mnlength']">
-                            ລະຫັດຕ້ອງມີຄວາມຍາວຫຼາຍກວ່າ 8 ໂຕຂຶ້ນໄປ
-                          </div>
-                        </div>
+                        <input  placeholder="ໃສ່ລະຫັດຜ່ານ" type="password" name="password" ngModel #passwordInput="ngModel" class="form-control" required >
+                        <small class="text-danger" *ngIf="passwordInput.invalid">Please Enter Password</small>
                       </div>
                     </div>
 
                     <div class="form-group col-md-6">
                       <label for="confrim_password">ຍືນຍັນລະຫັດຜ່ານ</label>
                       <div>
-                        <input [ngClass]="{'is-invalid' : submitted && f.confirm_password.errors}" placeholder="ຍືນຍັນລະຫັດຜ່ານ" type="password" id="confirm_password" class="form-control" formControlName="confirm_password">
-                        <div *ngIf="f.confirm_password.errors" class="invalid-feedback">
-                          <div *ngIf="f.confirm_password.errors.required">
-                            ຍືນຍັນລະຫັດຜ່ານອີກຄັ້ງ
-                          </div>
-                          <div *ngIf="f.confirm_password.errors.confirmedValidator">
-                            ຍືນຍັນລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ
-                          </div>
-
-                        </div>
+                        <input  placeholder="ຍືນຍັນລະຫັດຜ່ານ" type="password" name="confirm_password" ngModel #confirmPasswordInput="ngModel" class="form-control" required>
+                        <small class="text-danger" *ngIf="confirmPasswordInput.invalid" >Please Re-enter password</small>
                       </div>
                     </div>
 
                     <div class="form-group mt-3 col-md-6">
-                      <label for="date_of_birth">ວັນ/ເດືອນ/ປີເກີດ</label>
+                      <label for="dob">ວັນ/ເດືອນ/ປີເກີດ</label>
                       <div>
-                        <input type="date" [ngClass]="{'is-invalid': submitted && f.date_of_birth.errors}" id="date_of_birth" formControlName="date_of_birth" class="form-control rounded-3  text-center fs-5 fw-bold">
-                        <div *ngIf="f.date_of_birth.errors" class="invalid-feedback">
-                          <div *ngIf="f.date_of_birth.errors.required">
-                            ກະລຸນາເລືອກປີເກີດ
-                          </div>
-                        </div>
+                        <input type="date" ngModel #dobInput="ngModel" name="dob" class="form-control rounded-3  text-center fs-5 fw-bold" required>
+                        <small class="text-danger" *ngIf="dobInput.invalid">Please Choose Date of birth</small>
                       </div>
                     </div>
 
                     <div class="form-group mt-3 col-md-6">
-                      <label for="date_of_birth">ເບີໂທ</label>
+                      <label for="dob">ເບີໂທ</label>
                       <div>
-                        <input type="text" [ngClass]="{'is-invalid': submitted && f.telephone.errors}" id="telephone" formControlName="telephone" class="form-control rounded-3  text-center fs-5 fw-bold">
-                        <div *ngIf="f.telephone.errors" class="invalid-feedback">
-                          <div *ngIf="f.telephone.errors.required">
-                            ກະລຸນາເລືອກໃສ່ເບີໂທ
-                          </div>
-                        </div>
+                        <input type="text" ngModel #phoneInput="ngModel" name="phone" class="form-control rounded-3  text-center fs-5 fw-bold" required>
+                        <small class="text-danger" *ngIf="phoneInput.invalid">Please Enter Phone number</small>
                       </div>
                     </div>
 
                     <div class="row mt-3 d-flex">
                       <div class="col-md-8">
-                        <input class="radio-size ms-1" [ngClass]="{'is-invalid': submitted && f.gender.errors}" type="radio" id="gender 1" value="ເພດຍຶງ" formControlName="gender">
+                        <input class="radio-size ms-1"  ngModel #gender="ngModel" name="gender" type="radio" id="gender 1" value="ເພດຍຶງ" required>
                       <label for="gender 1" class="m-2">ເພດຍຶງ</label>
-                      <input class="radio-size ms-1" [ngClass]="{'is-invalid': submitted && f.gender.errors}" type="radio" id="gender 2" value="ເພດຊາຍ" formControlName="gender">
+                      <input class="radio-size ms-1"  ngModel #gender="ngModel" name="gender" type="radio" id="gender 2" value="ເພດຊາຍ" required>
                       <label for="gender 2" class="m-2"> ເພດຊາຍ</label>
-                      <input class="radio-size ms-1" [ngClass]="{'is-invalid': submitted && f.gender.errors}" type="radio" id="gender 3" value="ອື່ນໆ" formControlName="gender">
+                      <input class="radio-size ms-1" ngModel #gender="ngModel" name="gender" type="radio" id="gender 3" value="ອື່ນໆ" required>
                       <label for="gender 3" class="m-2">ອື່ນ</label>
-                      <div class="invalid-feedback" *ngIf="submitted && f.gender.errors">
-                        <div *ngIf="f.gender.errors.required">
-                          ກະລູນາເລືອກເພດ
-                        </div>
-                      </div>
+                        <small class="text-danger" *ngIf="gender.invalid">Please Select gender</small>
                       </div>
                     </div>
+
                   </div>
                 </div>
 
-                <div class="row">
-                  <div class="form-floating col-md-3">
-                    <select class="form-select" name="" id="user_province"  formControlName="user_province" (change)="onSelectprovince($event)" [ngClass]="{ 'is-invalid': submitted && f.user_province.errors}">
-                      <option disabled selected hidden value="">Select Province</option>
-                      <option *ngFor="let item of provinceList" value="{{ item.pr_id }}">{{ item.pr_name }}</option>
-                    </select>
-                    <label for="user_province" class="font-lao font-s" >&nbsp; ແຂວງ</label>
-                    <!-- <div class="invalid-feedback" *ngIf="submitted && f.user_province.errors">
-                      <div *ngIf="f.user_province.errors.required">
-                        ກະລຸນາເລືອກແຂວງ
-                      </div>
-                    </div> -->
-                    <small class="text-danger" *ngIf="f.user_province.hasError('required') && f.user_province.touched">ກະລຸນາເລືອກແຂວງ</small>
+                <div class="row justify-content-between">
+                  <div class="form-group mt-2">
 
+                    <label for="user_province" class="font-lao font-s" > ແຂວງ</label>
+                    <div class="col">
+                      <input type="text" class="col-md-8 form-control" ngModel #provinceInput="ngModel" name="province" required>
+                      <small class="text-danger" *ngIf="provinceInput.invalid">Please Enter Province</small>
+                    </div>
                   </div>
 
-                  <div class="form-floating col-md-3 mb-3">
-                    <select class="form-select" id="user_district" [ngClass]="{ 'is-invalid': submitted && f.user_district.errors}"  formControlName="user_district"  (change)="onSelectdistrict($event)">
-                      <option disable seleted hidden value="">Select District</option>
-                      <option *ngFor="let item of district_data" value="{{ item.dr_id }}">{{ item.dr_name }}</option>
-                    </select>
-                    <label for="user_district" class="font-lao font-s">&nbsp; ເມືອງ</label>
-                    <!-- <div class="invalid-feedback" *ngIf="submitted && f.user_district.errors">
-                      <div *ngIf="f.user_district.errors.required">
-                        ກະລຸນາເລືອກເມືອງ
-                      </div>
-                    </div> -->
-                    <small class="text-danger" *ngIf="  f.user_district.hasError('required') &&f.user_district.invalid && f.user_district.touched">ກະລຸນາເລືອກເມືອງ</small>
+                  <div class="form-group mt-4">
+
+                    <label for="user_district" class="font-lao font-s"> ເມືອງ</label>
+                    <div class="col">
+                      <input type="text" class="col-md-8 form-control" ngModel #districtInput="ngModel" name="district" required>
+                      <small class="text-danger" *ngIf="districtInput.invalid">Please Enter District</small>
+                    </div>
                   </div>
 
-                  <div class="form-floating col-md-3 mb-3">
-                    <select class="form-select" id="user_village" [ngClass]="{ 'is-invalid': submitted && f.user_village.errors}"  formControlName="user_village" >
-                      <option disable seleted hidden value="">Select Village</option>
-                      <option *ngFor="let item of village_data" value="{{ item.vill_id }}">{{ item.vill_name }}</option>
-                    </select>
-                    <label for="user_village" class="font-lao font-s">&nbsp; ບ້ານ</label>
-                    <!-- <div class="invalid-feedback" *ngIf="submitted && f.user_village.errors">
-                      <div *ngIf="f.user_village.errors.required">
-                        ກະລຸນາເລືອກບ້ານ
-                      </div>
-                    </div> -->
-                    <small class="p-error text-danger" *ngIf="f.user_village.hasError('required') &&f.user_village.invalid && f.user_village.touched">ກະລຸນາເລືອກບ້ານ</small>
+                  <div class="form-group mt-4">
+
+                    <label for="user_village" class="font-lao font-s"> ບ້ານ</label>
+                    <div class="col">
+                      <input type="text" class="col-md-8 form-control" ngModel #villageInput="ngModel" name="village" required>
+                      <small class="text-danger" *ngIf="villageInput.invalid && villageInput.touched">Please Enter Village</small>
+                    </div>
                   </div>
 
                 </div>
 
-                <button class="btn btn-primary m-2 col-sm-2 font-lao" type="submit">ບັນທຶກ</button>
-                <button class="btn btn-danger m-2 col-sm-2 font-lao" type="button" (click)="onReset()" >ຣີເຊັດຂໍ້ມູນ</button>
+                <button class="btn btn-primary m-2 col-sm-3 font-lao mt-5" type="submit">ບັນທຶກ</button>
               </form>
+              <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple" [fullScreen]="true">
+            </ngx-spinner>
 
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
 
   </div>

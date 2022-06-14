@@ -1,9 +1,12 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
+import { FormGroup,Validators, FormBuilder, NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ConfirmedValidator } from './must-match.validation';
 import { UserService } from './user-service';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-register',
@@ -21,7 +24,7 @@ export class RegisterComponent implements OnInit {
   registerForm: any = FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private service: UserService, private http:HttpClient) {
+  constructor(private fb: FormBuilder, private service: UserService, private http:HttpClient ,private spinner: NgxSpinnerService,private route: Router ) {
 
   }
 
@@ -60,23 +63,32 @@ export class RegisterComponent implements OnInit {
 
   get f(){return this.registerForm.controls;}
 
-  on_Register(){
-    this.submitted = true;
-    if(this.registerForm.invalid){
-       Swal.fire({
-        title: 'ກະລຸນາກວດສອບຄືນອີກຄັ້ງ',
-        icon: 'warning',
-        confirmButtonText: 'ຕົກລົງ',
+  onSignup(form: NgForm){
+    if(form.invalid){
+      Swal.fire({
+        icon: 'error',
+        title: 'Form is Invalid',
+        text: 'Please input all Fill',
       })
-     } else{
-      const formData= new FormData(); //Create Data Store by FormData()
-      Object.entries(this.registerForm.value).forEach(([key,value]:any[])=>{
-      formData.set(key,value)
-    })
-      console.log(formData)
+    }else if(form.valid){
+      this.spinner.show()
+      this.service.register( form.value.name, form.value.surname, form.value.email, form.value.password,
+        form.value.dob, form.value.phone, form.value.gender,form.value.province, form.value.district,
+        form.value.village );
+      this.route.navigate(['login'])
+      Swal.fire({
+        icon:'success',
+        title:'ຍິນດີຕອນຮັບ',
+        text:'ລົງທະບຽນສຳເລັດ'
+      });
+
 
     }
-  }
+    setTimeout(() =>{
+      this.spinner.hide();
+    },2000)
+}
+
 
   onSelectprovince(province:any){
     let data=this.districtList.filter((res: {pr_id : string;})=>{

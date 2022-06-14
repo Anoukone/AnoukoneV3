@@ -1,0 +1,59 @@
+<ng-container class="font-lao" *ngIf="products!=0">
+  <div class="card w-100">
+<div class="card-item">
+  <table  class="table table=reponsive">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>item Name</th>
+          <th>item Image</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of products; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ item.name }}</td>
+          <td><img style="width: 120px;" [src]="item.image" alt=""></td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.price | currency:'KIP' }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>
+            <button (click)="removeCart(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4"></td>
+          <td ><button (click)="removeAllCart()" class="btn btn-danger"> Empty Cart</button></td>
+          <td><button routerLink="/typef" class="btn btn-success">Shop More</button></td>
+          <td><button class="btn btn-primary" (click)="deliveryAdd()">Check Out</button></td>
+          <td><strong>Total: {{ totalPrice | currency:'KIP'}}</strong></td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+  </div>
+</ng-container>
+
+
+
+<ng-container *ngIf="products==0">
+  <div class="container">
+    <div class="card row mb-3">
+
+      <div class="center justify-content-center row text-center">
+        <h3 class="card-title">My Cart</h3>
+        <img src="assets/images/carting.png" class="image h-25 w-25 me-5" alt="">
+        <h3>Your cart is Empty</h3>
+        <h4>Add item to shop now</h4>
+        <button routerLinkActive="active" routerLink="/typef" class="btn btn-primary w-25 mb-4">Shop now</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</ng-container>

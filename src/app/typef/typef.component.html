@@ -1,53 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <div class="container">
-      <img class="img m-lg-2" src="assets/images/logo.png">
-        <a class="navbar-brand " style="font-size:25px; color: white;" href="index.html">ຮ້ານ ເອສເອສ ຊີ້ນສະໄລ້  <br/> <br/> ແລະ ອາຫານແຊ່ແຂງ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2  ">
-               
-            
-
-                <li class="nav-item"><a class="fa fa-home nav-link" style="font-size:18px; color: white;"  href=""> ໜ້າຫຼັກ</a></li>
-                
-                <li class="nav-item dropdown " >
-                    <a class="fa fa-align-justify nav-link dropdown-toggle" style="font-size:18px;color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ໝວດໝູ່ອາຫານ</a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                        <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" href=""> ປະເພດຊີ້ນໝູ</a></li>
-                        <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" href=""> ປະເພດຊີ້ນງົວ</a></li>
-                        <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" href=""> ປະເພດອາຫານແຊ່ແຂງ</a></li>
-                    </ul>
-                </li>
-              
-                <!-- <li class="nav-item"><a class=" fa fa-telegram nav-link" style="font-size:18px; color: white;" href=""> ຕິດຕໍ່ພວກເຮົາ</a></li> -->
-                <li class="nav-item dropdown">
-                    <a class="fa fa-list-alt nav-link dropdown-toggle" style="font-size:18px; color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ເຂົ້າສູ່ລະບົບ</a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                        <li><a class="fa fa-lock dropdown-item" style="font-size:18px;" href=""> ລ໋ອກອິນ</a></li>
-                        <li><a class="fa fa-registered dropdown-item" style="font-size:18px;" href=""> ລົງທະບຽນ</a></li>
-                    </ul>
-                </li>
-
-                <form class="d-flex ms-0">
-                  <button class="btn btn-outline-light"  type="submit">
-                      <i class="fa fa-cart-plus me-1" > ກະຕ່າສິ້ນຄ້າ</i>
-                      <span class="badge bg-white text-dark ms-1 rounded-pill mt-1">0</span>
-                  </button>
-              </form>
-               
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="row  m-lg-3 mt-3 mb-3 ms-auto me-auto">
-  <div class=" input-group d-sm-flex">
-    <input type="search" class="form-control rounded" placeholder="ຄົ້ນຫາ" aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" class="btn btn-outline-primary">ຄົ້ນຫາ</button>
-  </div>
-</div>
-
-
 
 
 <header class="bg-primary py-1">
@@ -59,377 +9,45 @@
   </div>
 </header>
 <!-- Section-->
-<section>
-  <div class="container  mt-5">
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="assets/images/02.jpg" alt="..." />
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                          <!-- Product price-->
-                          ລາຄາ: 29.000 ກີບ
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                  </div>
-              </div>
+
+  <div class="container  mt-5" >
+      <div  class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+<div *ngFor="let product of productList" class="row">
+  <div class="col">
+    <div class="card shadow-sm">
+      <img class="bd-placeholder-img card-img-top" [src]="product.image">
+
+      <div class="card-body">
+        <p class="card-text">
+          <strong class="text-muted">{{ product.name }}</strong>
+        </p>
+        <p class="card-text">
+          <strong class="text-muted">{{ product.price | currency:'KIP' }}</strong>
+        </p>
+        <p class="card-text">{{ product.description }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" (click)="addtocart(product)">Add to Cart</button>
+            <button type="button" class="btn btn-secondary">View Detail</button>
           </div>
-          <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/01.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
         </div>
-          <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/05.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="assets/images/05.jpg" alt="..." />
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                          <!-- Product reviews-->
-                         
-                          <!-- Product price-->
-                          ລາຄາ: 29.000 ກີບ
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/03.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="assets/images/06.jpg" alt="..." />
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                          <!-- Product price-->
-                          ລາຄາ: 29.000 ກີບ
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/02.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="assets/images/01.jpg" alt="..." />
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                          <!-- Product reviews-->
-                          
-                          <!-- Product price-->
-                          ລາຄາ: 29.000 ກີບ
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/05.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/05.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/04.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-5">
-            <div class="card h-100">
-                <!-- Product image-->
-                <img class="card-img-top" src="assets/images/02.jpg" alt="..." />
-                <!-- Product details-->
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder" style="font-size: 15px;">ຊີ້ນສັນຄໍສະໄລ້</h5>
-                        <!-- Product price-->
-                        ລາຄາ: 29.000 ກີບ
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">ລາຍລະອຽດສິນຄ້າ</a></div>
-                </div>
-            </div>
-        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
       </div>
   </div>
-</section>
 
 
 
 
-<footer
-            class="text-center text-lg-start text-white bg-primary">
-      <!-- Grid container -->
-      <div class="container p-4 pb-0">
-        <!-- Section: Links -->
-        <section class="">
-          <!--Grid row-->
-          <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold fa fa- " style="font-size: 19px;">
-                ຮ້ານ ເອສເອສ ຊີ້ນສະໄລ້ ແລະ ອາຫານແຊ່ແຂງ
-              </h6>
-              <p>
-                ຮ້ານ ເອສເອສ ຊີ້ນສະໄລ້ ແລະ ອາຫານແຊ່ແຂງ ເປັນຮ້ານຂາຍເຄື່ອງຍ່ອຍກ່ຽວກັບຊີ້ນ ແລະ ອາຫານແຊ່ແຂງ 
-                ຫາກຫຼາຍປະເພດໃຫ້ທຸກທ່ານເລືອກໃນຊີ້ນສະໄລ້ ແລະ ອາຫານແຊ່ແຂງແຕ່ລະປະເພດ.
-              </p>
-            </div>
-            <!-- Grid column -->
-  
-            <!-- <hr class="w-100 clearfix d-md-none" /> -->
-  
-            <!-- Grid column -->
-            <!-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: 18px;">ລາຍການປະເພດສິນຄ້າ</h6>
-              <p>
-                <a class="text-white">ປະເພດຊີ້ນໝູ</a>
-              </p>
-              <p>
-                <a class="text-white">ປະເພດຊີ້ນງົວ</a>
-              </p>
-              <p>
-                <a class="text-white">ປະເພດອາຫານແຊ່ແຂງ</a>
-              </p>
-              
-            </div> -->
-            <!-- Grid column -->
-  
-            <!-- <hr class="w-100 clearfix d-md-none" /> -->
-  
-            <!-- Grid column -->
-            <!-- <hr class="w-100 clearfix d-md-none" /> -->
-  
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: 18px ;">ຕິດຕໍ່</h6>
-              <p><i class="fa fa-home mr-3"></i> ບ້ານ ດົງຄຳຊ້າງ ເມືອງ ຫາດຊາຍຟອງ ນະຄອນຫຼວງວຽງຈັນ</p>
-              <p><i class="fa fa-envelope mr-3"></i> SSslide@gmail.com</p>
-              <p><i class="fa fa-phone mr-3"></i> 020 56888815 , 020 56386300</p>
-              
-            </div>
-            <!-- Grid column -->
-  
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 mb-5">
-              <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: 18px;">ຕິດຕາມພວກເຮົາໄດ້ທີ່</h6>
-  
-              <!-- Facebook -->
-              <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #3b5998"
-                 href="#!"
-                 role="button"
-                 ><i class="fa fa-facebook-f"></i
-                ></a>
-  
-              <!-- Twitter -->
-              <!-- <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #55acee"
-                 href="#!"
-                 role="button"
-                 ><i class="fa fa-twitter"></i
-                ></a> -->
-  
-              <!-- Google -->
-              <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #dd4b39"
-                 href="#!"
-                 role="button"
-                 ><i class="fa fa-google"></i
-                ></a>
-  
-              <!-- Instagram -->
-              <!-- <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #ac2bac"
-                 href="#!"
-                 role="button"
-                 ><i class="fa fa-instagram"></i
-                ></a> -->
-  
-              <!-- Linkedin -->
-              <!-- <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #0082ca"
-                 href="#!"
-                 role="button"
-                 ><i class="fa fa-linkedin "></i
-                ></a> -->
-              <!-- Github -->
-              <!-- <a
-                 class="btn btn-primary btn-floating m-1"
-                 style="background-color: #333333"
-                 href="#!"
-                 role="button"
-                 ><i class="fa fa-github"></i
-                ></a> -->
-            </div>
-          </div>
-          <!--Grid row-->
-        </section>
-        <!-- Section: Links -->
-      </div>
-      <!-- Grid container -->
-  
-      <!-- Copyright -->
-      <!-- <div
-           class="text-center p-3"
-           style="background-color: rgba(0, 0, 0, 0.2)"
-           >
-        © 2020 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/"
-           >MDBootstrap.com</a
-          >
-      </div> -->
-      <!-- Copyright -->
-    </footer>
+
+
     <!-- Footer -->
-  
+
   <!-- End of .container -->
