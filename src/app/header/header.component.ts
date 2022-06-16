@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../register/user-service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -11,18 +12,18 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HeaderComponent implements OnInit, OnDestroy {
   userLogin = false;
   private authListenerSubs: any
-   totalItem: any
+  public totalItem: any = 0
 
 
-  constructor(private userService: UserService, private spinner: NgxSpinnerService) { }
+  constructor(private userService: UserService, private spinner: NgxSpinnerService, private route: Router) { }
 
   ngOnInit(): void {
     this.authListenerSubs =this.userService.getAuthStatusListenser().subscribe(userAuthenticated =>
       {
         this.userLogin = userAuthenticated;
       })
-    this.userService.getProduct().subscribe(res => {
-      this.totalItem = res.lenght;
+    this.userService.getProduct().subscribe(response => {
+      this.totalItem = response.lenght;
     })
 
   }
@@ -33,6 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     setTimeout(() =>{
       this.spinner.hide();
     },2000)
+    this.route.navigate(['login'])
   }
 
 

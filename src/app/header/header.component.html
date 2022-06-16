@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary font-lao">
   <div class="container">
     <img class="img m-lg-2" src="assets/images/logo.png">
       <a class="navbar-brand " style="font-size:25px; color: white;" href="index.html">ຮ້ານ ເອສເອສ ຊີ້ນສະໄລ້  <br/> <br/> ແລະ ອາຫານແຊ່ແຂງ</a>
@@ -10,7 +10,7 @@
 
               <li class="nav-item"><a class="fa fa-home nav-link" style="font-size:18px; color: white;"  routerLinkActive="active" routerLink="/main"> ໜ້າຫຼັກ</a></li>
 
-              <li class="nav-item dropdown " >
+              <li class="nav-item dropdown font-lao" >
                   <a class="fa fa-align-justify nav-link dropdown-toggle" style="font-size:18px;color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ໝວດໝູ່ອາຫານ</a>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                       <li><a class="dropdown-item fa fa-hand-o-right" style="font-size:18px;" routerLinkActive="active" routerLink="/typef"> ປະເພດຊີ້ນໝູ</a></li>
@@ -20,7 +20,7 @@
               </li>
 
               <!-- <li class="nav-item"><a class=" fa fa-telegram nav-link" style="font-size:18px; color: white;" href=""> ຕິດຕໍ່ພວກເຮົາ</a></li> -->
-              <li *ngIf="!userLogin" class="nav-item dropdown">
+              <li *ngIf="!userLogin" class="nav-item dropdown font-lao">
                   <a class="fa fa-list-alt nav-link dropdown-toggle" style="font-size:18px; color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ເຂົ້າສູ່ລະບົບ</a>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                       <li ><a class="fa fa-lock dropdown-item" style="font-size:18px;" routerLinkActive="active" routerLink="/login" > ລ໋ອກອິນ</a></li>
@@ -29,9 +29,9 @@
               </li>
 
 
-                <button routerLinkActive="active" routerLink="cart" *ngIf="userLogin" class="btn btn-outline-light">
+                <button routerLinkActive="active" routerLink="cart" *ngIf="userLogin" class="btn btn-outline-light font-lao">
                     <i  class="fa fa-cart-plus me-1" > ກະຕ່າສິ້ນຄ້າ</i>
-                    <span class="text-white">{{ totalItem }}</span>
+                    <span class="text-white">{{ totalItem}}</span>
 
                 </button>
                <li *ngIf="userLogin">

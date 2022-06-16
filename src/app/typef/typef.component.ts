@@ -15,11 +15,12 @@ export class TypefComponent implements OnInit {
     this.service.showProduct().subscribe(response =>{
       this.productList = response;
       this.productList.forEach((a:any) => {
-        Object.assign(a,{quantity:1,total:a.price})
+        Object.assign(a,{qty:1,total:a.price})
       });
     })
   }
   addtocart(product: any){
     this.service.addtoCart(product)
   }
+  viewDetails(){}
 }

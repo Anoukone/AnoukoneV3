@@ -90,6 +90,7 @@ getVillage(){
   setProduct(product: any){
     this.cartitemList.push(...product)
     this.productList.next(product)
+
   }
   addtoCart(product: any){
     this.cartitemList.push(product)

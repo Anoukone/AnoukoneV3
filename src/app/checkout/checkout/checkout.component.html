@@ -1,12 +1,55 @@
 
 
 
-<h2 mat-dialog-title>ກະລຸນາໃສ່ທີ່ຢູ່ຂອງທ່ານ</h2>
-<mat-dialog-content>
+<h2 mat-dialog-title class="font-lao">ກະລຸນາໃສ່ທີ່ຢູ່ຂອງທ່ານ</h2>
 
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button [mat-dialog-close]="true">Delete</button>
-</mat-dialog-actions>
+<div class="container-fluid">
+  <mat-dialog-content class="card">
+    <form #address="ngForm" action="" (submit)="addressForm(address)">
+      <div class="card-body">
+
+        <div class="row mb-2 font-lao">
+          <label for="">ຊື່ ແລະ ນາມສະກຸນ
+            <input type="text" class="col-12"  name="Name & Surname" ngModel #NameandSurname="ngModel" required placeholder="ຊື່ ແລະ ນາມສະກຸນ">
+          </label>
+          <small class="text-danger font-lao" *ngIf="NameandSurname.invalid">ກະລຸນາສ່ຊື່ ແລະ ນາມສະກຸນ</small>
+        </div>
+        <div class="row mb-2 font-lao">
+          <label for="">ເບີໂທ
+            <input type="text" class="col-12" name="Number" ngModel #Number="ngModel" required placeholder="ເບີໂທ">
+          </label>
+        </div>
+        <small class="text-danger font-lao" *ngIf="Number.invalid">ກະລຸນາໃສ່ເບີໂທ</small>
+        <div class="row mb-2 font-lao">
+          <label for="">ທີ່ຢູ່ເມືອງ
+            <input type="text" class="col-12" name="District" ngModel #district="ngModel" required placeholder="ທີ່ຢູ່ເມືອງ">
+          </label>
+        </div>
+        <small class="text-danger" *ngIf="district.invalid">ກະລຸນາໃສ່ເມືອງ</small>
+        <div class="row mb-2 font-lao">
+          <label for="">ທີ່ຢູ່ບ້ານ
+            <input type="text" class="col-12" name="Village" ngModel #village="ngModel" required placeholder="ທີ່ຢູ່ບ້ານ">
+          </label>
+        </div>
+        <small class="text-danger font-lao" *ngIf="village.invalid">ກະລຸນາໃສ່ບ້ານ</small>
+
+        <div class="justify-content-center row font-lao">
+          <label for="">ລາຍລະອຽດທີ່ຢູ່ເພີ່ມເຕີມ <span class="text-danger">(ຈຳເປັນຕ້ອງໃສ່)</span></label>
+          <textarea class="mt-1" name="Detail" id="" cols="50" rows="5" ngModel #moredetail="ngModel"></textarea>
+
+        </div>
+
+
+      </div>
+
+      <mat-dialog-actions class="font-lao">
+        <button mat-button mat-dialog-close class="btn btn-danger w-25">ຍົກເລີກ</button>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+        <button mat-button type="submit" class="btn btn-primary w-25 mx-2">ຍືນຍັນ</button>
+      </mat-dialog-actions>
+    </form>
+
+  </mat-dialog-content>
+</div>
+
+

@@ -1,6 +1,6 @@
 
 
-<header class="bg-primary py-1">
+<header class="bg-primary py-1 font-lao">
   <div class="container px-4 px-lg-5 my-5">
       <div class="text-center text-white">
           <h1 class="display-4 fw-bolder">ປະເພດຊີ້ນໝູ</h1>
@@ -13,7 +13,7 @@
   <div class="container  mt-5" >
       <div  class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-<div *ngFor="let product of productList" class="row">
+<div *ngFor="let product of productList" class="row font-lao">
   <div class="col">
     <div class="card shadow-sm">
       <img class="bd-placeholder-img card-img-top" [src]="product.image">
@@ -29,7 +29,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-primary" (click)="addtocart(product)">Add to Cart</button>
-            <button type="button" class="btn btn-secondary">View Detail</button>
+            <button type="button" class="btn btn-secondary" routerLink="/buy" (click)="viewDetails()">View Detail</button>
           </div>
         </div>
       </div>
