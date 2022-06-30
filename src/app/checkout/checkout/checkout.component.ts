@@ -11,18 +11,22 @@ import Swal from 'sweetalert2';
 })
 export class CheckoutComponent implements OnInit {
 
+  totalprice: any
 
   constructor(private service: UserService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.service.getProduct().subscribe(res => {
+      this.totalprice = this.service.gettotalPrice()
+    })
   }
 
   addressForm(form: NgForm){
     if(form.invalid){
       Swal.fire({
         icon: 'error',
-        title: 'Form is Invalid',
-        text: 'Please check all Fill',
+        title: 'ກະລຸນາຕີ່ມຂໍ້ມູນ',
+        text: 'ກວດສອບຄືນ',
       })
     }else if(form.valid){
       console.log(form.value)

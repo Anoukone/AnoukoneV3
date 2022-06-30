@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     if(form.invalid){
       Swal.fire({
         icon: 'error',
-        title: 'Form is Invalid',
-        text: 'Please check all Fill',
+        title: 'ລະຫັດຜ່ານ ຫຼື ເມລບໍ່ຖືກຕ້ອງ',
+        text: 'ກະລຸນາກວດສອບຄືນ',
       })
     }else if(form.valid){
       this.spinner.show()

@@ -1,0 +1,41 @@
+
+
+
+<!-- Section-->
+
+
+<div  class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+  <div *ngFor="let product of productTypes" class="row font-lao">
+    <div class="col">
+      <div class="card shadow-sm">
+
+
+        <div class="card-body">
+          <p class="card-text">
+            <strong class="text-muted">{{ product.name }}</strong>
+          </p>
+          <p>
+            <strong>{{ product.pt_id }}</strong>
+          </p>
+          <p>
+            <strong>{{ product.category }}</strong>
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" >ເບິ່ງເພີ່ມເຕີມ</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        </div>
+    </div>
+
+
+
+
+
+

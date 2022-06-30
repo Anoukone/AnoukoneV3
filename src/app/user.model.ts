@@ -18,6 +18,8 @@ export class UserLogin {
 }
 
 export class Product {
+  _id: any
+  pro_id: any
   name: any
   price: any
   description: any

@@ -67,8 +67,8 @@ export class RegisterComponent implements OnInit {
     if(form.invalid){
       Swal.fire({
         icon: 'error',
-        title: 'Form is Invalid',
-        text: 'Please input all Fill',
+        title: 'ຟອມບໍ່ຖືກຕ້ອງ',
+        text: 'ກະລຸນາກວດສອບຄືນ',
       })
     }else if(form.valid){
       this.spinner.show()

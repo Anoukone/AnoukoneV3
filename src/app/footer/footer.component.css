@@ -27,5 +27,8 @@
    font-family: noto;
  }
 .footer {
-  position: fixed;
+  margin-top: auto;
+}
+body{
+  height: 100vh;
 }

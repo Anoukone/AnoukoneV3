@@ -8,17 +8,19 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
 import { BuyComponent } from './buy/buy.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
+  {path:'categories', component: CategoriesComponent},
   {path:'main', component: MainComponent  },
   {path:'typef', component:TypefComponent },
   {path:'register', component: RegisterComponent },
   {path:'login', component: LoginComponent },
   {path:'profile', component: ProfileComponent },
   {path:'cart', component: CartComponent },
-  {path:'buy', component: BuyComponent },
+  {path:'buy/:id', component: BuyComponent },
   {path:'checkout', component: CheckoutComponent }
 
 

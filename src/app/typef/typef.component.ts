@@ -1,3 +1,4 @@
+import { Product } from './../user.model';
 import { UserService } from './../register/user-service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./typef.component.css']
 })
 export class TypefComponent implements OnInit {
-  productList : any
-
+  productList : any = []
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
@@ -22,5 +22,5 @@ export class TypefComponent implements OnInit {
   addtocart(product: any){
     this.service.addtoCart(product)
   }
-  viewDetails(){}
+
 }

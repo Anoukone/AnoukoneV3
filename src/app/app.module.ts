@@ -23,6 +23,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FooterComponent,
     CartComponent,
     CheckoutComponent,
+    CategoriesComponent,
 
   ],
   imports: [

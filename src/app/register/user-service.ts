@@ -66,6 +66,7 @@ getVillage(){
         this.isAuthenticated = true,
         this.authStatusListener.next(true)
       }
+
     })
   }
     logout(){
@@ -75,16 +76,13 @@ getVillage(){
   }
 
   showProduct(){
-    let url="http://localhost:8001/api/products"
+    let url="http://localhost:8001/api/products/sales"
     return this.http.get<any>(url);
   }
 
+
   getProduct(){
     return this.productList.asObservable();
-  }
-
-  itemCount(){
-    return this.cartitemList.lenght
   }
 
   setProduct(product: any){
@@ -96,8 +94,6 @@ getVillage(){
     this.cartitemList.push(product)
     this.productList.next(this.cartitemList)
     this.gettotalPrice()
-    console.log(product)
-
   }
   gettotalPrice(): number{
     let totalPrice = 0
@@ -108,7 +104,7 @@ getVillage(){
   }
   removeCart(product: any){
     this.cartitemList.map((a:any, index:any) => {
-      if(product.id === a.id){
+      if(product.pro_id === a.pro_id){
         this.cartitemList.splice(index,1)
       }
     })

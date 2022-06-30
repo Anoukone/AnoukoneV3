@@ -26,3 +26,12 @@
  .font-lao{
    font-family: noto;
  }
+.selectOP{
+ display:inline;
+ height: 40px;
+ color: white;
+ background-color: #0d6efd;
+ border: none;
+ font-size: 18px;
+}
+

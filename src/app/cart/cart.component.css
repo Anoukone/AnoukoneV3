@@ -7,3 +7,6 @@
 .font-lao{
   font-family: noto;
 }
+.card-item{
+  overflow-y: auto;
+}
