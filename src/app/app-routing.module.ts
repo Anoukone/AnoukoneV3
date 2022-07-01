@@ -1,3 +1,4 @@
+import { TypefoodlistComponent } from './typefoodlist/typefoodlist.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { TypefComponent } from './typef/typef.component';
 import { NgModule } from '@angular/core';
@@ -8,13 +9,16 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
 import { BuyComponent } from './buy/buy.component';
-import { CategoriesComponent } from './categories/categories.component';
+
+import { TypefoodComponent } from './typefood/typefood.component';
 
 
 const routes: Routes = [
   {path:'', redirectTo:'main', pathMatch:'full'},
-  {path:'categories', component: CategoriesComponent},
-  {path:'main', component: MainComponent  },
+
+  {path:'main', component: MainComponent },
+  {path: 'typefoodlist/:id', component: TypefoodlistComponent},
+  {path:'typefood/:id', component: TypefoodComponent },
   {path:'typef', component:TypefComponent },
   {path:'register', component: RegisterComponent },
   {path:'login', component: LoginComponent },

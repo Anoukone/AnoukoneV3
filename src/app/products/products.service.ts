@@ -21,11 +21,13 @@ getproductCategory(){
 getproductTypes(){
   return this.http.get<any>(`${this.url}/types`)
 }
-getproductTypesCat(category: any){
-  return this.http.get<any>(`${this.url}/types?=${category}`)
+
+productItem(category:any){
+  return this.http.get<any>(`${this.url}/type?category=${category}`)
 }
-getproductList(type: any){
-  return this.http.get<any>(`${this.url}/products?type=${type}`)
+
+itemProducts(protype:any){
+  return this.http.get<any>(`${this.url}/product?type=${protype}`)
 }
 
 }

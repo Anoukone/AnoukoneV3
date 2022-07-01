@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -17,7 +18,7 @@ export class UserService {
   public cartitemList : any = []
   public productList = new BehaviorSubject<any>([])
 
-  constructor (private http: HttpClient){
+  constructor (private http: HttpClient, private route: Router){
 
   }
 
@@ -65,14 +66,19 @@ getVillage(){
       if (token){
         this.isAuthenticated = true,
         this.authStatusListener.next(true)
+        this.route.navigate(['/'])
       }
 
     })
   }
+
+
+
     logout(){
     this.token = null,
     this.isAuthenticated = false
     this.authStatusListener.next(false)
+    this.route.navigate(['/'])
   }
 
   showProduct(){

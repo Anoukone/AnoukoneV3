@@ -16,9 +16,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private authListenerSubs: any
   public totalItem: any = []
   productCategories: any = []
+  productTypes: any = []
 
-
-  @Output() productTypes: any = []
+  typeList: any
   constructor(private userService: UserService, private spinner: NgxSpinnerService, private route: Router, private productService: ProductsService ) { }
 
   ngOnInit(): void {
@@ -33,11 +33,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
      this.productService.getproductCategory().subscribe(res =>{
       this.productCategories = res
      })
-     this.productService.getproductTypes().subscribe(res =>{
-      this.productTypes = res
-     })
-
-
 
 
   }
@@ -58,12 +53,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authListenerSubs.unsubscribe()
   }
 
-onselectCategories(categories: any){
-  let data = this.productTypes.filter((res: {category: string}) =>{
-    return res.category.toLowerCase().match(categories.target.value.toLocaleLowerCase())
-  })
-  this.productTypes = data
-  this.route.navigate(['categories'])
-}
 
 }

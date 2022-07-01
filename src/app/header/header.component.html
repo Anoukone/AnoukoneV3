@@ -9,12 +9,23 @@
 
 
               <li class="nav-item"><a class="fa fa-home nav-link" style="font-size:18px; color: white;"  routerLinkActive="active" routerLink="/main"> ໜ້າຫຼັກ</a></li>
-              <div>
-                <select class="selectOP" name="ປະເພດສິນຄ້າ" id="productCategories" (click)="onselectCategories($event)">
-                  <option value="" >ປະເພດຊີ້ນຕ່າງໆ</option>
-                  <option *ngFor="let item of productCategories " value="{{ item.pc_id }}">ປະເພດ{{ item.name }}</option>
-                </select>
-              </div>
+
+
+              <!-- <li class="nav-item"><a class="font-lao nav-link" style="font-size:18px; color: white;"  routerLinkActive="active" routerLink="/categories">ປະເພດຊີ້ນຕ່າງໆ</a></li> -->
+
+              <button routerLink="/typef" class="btn btn-outline-light font-lao mx-2">ສິນຄ້າລວມ</button>
+                <button routerLinkActive="active" routerLink="cart" *ngIf="userLogin" class="btn btn-outline-light font-lao">
+                    <i  class="fa fa-cart-plus me-1" style="font-size: 20px;"></i>
+                     <div class="badge bg-danger">{{ totalItem }} </div>
+                </button>
+
+                <li class="nav-item dropdown font-lao" >
+                  <a class="fa fa-list nav-link dropdown-toggle" style="font-size:18px; color: white;" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ໝວດໝູ່ຊີ້ນ</a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog"  >
+                      <li *ngFor="let item of productCategories" ><a class="dropdown-item" style="font-size:18px;" routerLink="/typefood/{{item.pc_id}}"  >ປະເພດ{{ item.name }}</a></li>
+
+                  </ul>
+                </li>
 
 
               <!-- <li class="nav-item"><a class=" fa fa-telegram nav-link" style="font-size:18px; color: white;" href=""> ຕິດຕໍ່ພວກເຮົາ</a></li> -->
@@ -26,12 +37,7 @@
                   </ul>
               </li>
 
-                <button routerLink="/typef" class="btn btn-outline-light font-lao mx-2">ສິນຄ້າທັງຫມົດ</button>
-                <button routerLinkActive="active" routerLink="cart" *ngIf="userLogin" class="btn btn-outline-light font-lao">
-                    <i  class="fa fa-cart-plus me-1" style="font-size: 20px;"></i>
-                     <div class="badge bg-danger">{{ totalItem }} </div>
 
-                </button>
                <li *ngIf="userLogin">
                 <button type="button" (click)="onLogout()" class="btn btn-danger mx-2 font-lao">ອອກຈາກລະບົບ</button>
                </li>
@@ -43,6 +49,12 @@
       </div>
   </div>
 </nav>
+
+
+
+
+
+
 
 
 

@@ -21,9 +21,11 @@ import { FormsModule } from '@angular/forms';
 import { AUthInterceptor } from './guards/auth-interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {MatDialogModule} from '@angular/material/dialog';
-import { CategoriesComponent } from './categories/categories.component';
+
+import { TypefoodComponent } from './typefood/typefood.component';
+import { TypefoodlistComponent } from './typefoodlist/typefoodlist.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CategoriesComponent } from './categories/categories.component';
     FooterComponent,
     CartComponent,
     CheckoutComponent,
-    CategoriesComponent,
+
+    TypefoodComponent,
+      TypefoodlistComponent,
 
   ],
   imports: [
